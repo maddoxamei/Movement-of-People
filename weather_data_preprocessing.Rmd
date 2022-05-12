@@ -1,0 +1,76 @@
+---
+title: "Weather Data Preprocessing"
+author: "Paul"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+```
+
+
+```{r}
+#df <- read.csv("uber-raw-data-janjune-15.csv")
+noaa.df <- read.csv("NYCweather_hourly_full.csv")
+```
+
+
+```{r}
+#df
+noaa.df
+```
+```{r}
+colnames(noaa.df)
+```
+
+
+```{r}
+df <- noaa.df %>% 
+  filter(noaa.df$REPORT_TYPE == 'SOD  ') %>% 
+  subset(select = c("DATE","DailyPrecipitation","DailySnowDepth","DailySnowfall",
+                    "DailyAverageWindSpeed","DailySustainedWindSpeed","DailyPeakWindSpeed",
+                    "DailyAverageDewPointTemperature",
+                    "DailyAverageDryBulbTemperature",
+                    "DailyAverageWetBulbTemperature",
+                    "DailyMaximumDryBulbTemperature",
+                    "DailyMinimumDryBulbTemperature",
+                    "DailyDepartureFromNormalAverageTemperature",
+                    "DailyAverageRelativeHumidity","DailyWeather")) 
+
+```
+
+
+```{r}
+df
+```
+
+```{r}
+df$year = substr(df$DATE,1,4)
+df$month = substr(df$DATE,6,7)
+df$day = substr(df$DATE,9,10)
+
+```
+
+
+
+```{r}
+df2 <- read.csv("rides_by_date.csv")
+colnames(df2)
+df2
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
