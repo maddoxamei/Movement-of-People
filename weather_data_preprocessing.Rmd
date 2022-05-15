@@ -70,35 +70,38 @@ FG = Fog
 SN = Snow
 
 ```{r}
-df3$rain <- 0
-df3$mist <- 0
-df3$haze <- 0
-df3$fog <- 0
-df3$snow <- 0
+df3$No.Weather.Type <- 0
+df3$Rain <- 0
+df3$Mist <- 0
+df3$Haze <- 0
+df3$Fog <- 0
+df3$Snow <- 0
 
-df3[df3$DailyWeather=='RA',]$rain <-  1
-df3[df3$DailyWeather=='RA BR HZ',]$rain <-  1
-df3[df3$DailyWeather=='RA FG BR',]$rain <-  1
-df3[df3$DailyWeather=='RA SN BR',]$rain <-  1
-df3[df3$DailyWeather=='RA BR',]$rain <-  1
-df3[df3$DailyWeather=='RA FG BR HZ',]$rain <-  1
-df3[df3$DailyWeather=='RA HZ',]$rain <-  1
-df3[df3$DailyWeather=='RA BR HZ',]$mist <-  1
-df3[df3$DailyWeather=='BR',]$mist <-  1
-df3[df3$DailyWeather=='RA FG BR',]$mist <-  1
-df3[df3$DailyWeather=='RA SN BR',]$mist <-  1
-df3[df3$DailyWeather=='RA BR',]$mist <-  1
-df3[df3$DailyWeather=='RA FG BR HZ',]$mist <-  1
-df3[df3$DailyWeather=='BR HZ',]$mist <-  1
-df3[df3$DailyWeather=='RA BR HZ',]$haze <-  1
-df3[df3$DailyWeather=='RA FG BR HZ',]$haze <-  1
-df3[df3$DailyWeather=='HZ',]$haze <-  1
-df3[df3$DailyWeather=='BR HZ',]$haze <-  1
-df3[df3$DailyWeather=='RA HZ',]$haze <-  1
-df3[df3$DailyWeather=='RA FG BR',]$fog <-  1
-df3[df3$DailyWeather=='RA FG BR HZ',]$fog <-  1
-df3[df3$DailyWeather=='RA SN BR',]$snow <-  1
-df3[df3$DailySnowfall=='T',]$snow <-  1
+
+df3[df3$DailyWeather=='',]$No.Weather.Type <-  1
+df3[df3$DailyWeather=='RA',]$Rain <-  1
+df3[df3$DailyWeather=='RA BR HZ',]$Rain <-  1
+df3[df3$DailyWeather=='RA FG BR',]$Rain <-  1
+df3[df3$DailyWeather=='RA SN BR',]$Rain <-  1
+df3[df3$DailyWeather=='RA BR',]$Rain <-  1
+df3[df3$DailyWeather=='RA FG BR HZ',]$Rain <-  1
+df3[df3$DailyWeather=='RA HZ',]$Rain <-  1
+df3[df3$DailyWeather=='RA BR HZ',]$Mist <-  1
+df3[df3$DailyWeather=='BR',]$Mist <-  1
+df3[df3$DailyWeather=='RA FG BR',]$Mist <-  1
+df3[df3$DailyWeather=='RA SN BR',]$Mist <-  1
+df3[df3$DailyWeather=='RA BR',]$Mist <-  1
+df3[df3$DailyWeather=='RA FG BR HZ',]$Mist <-  1
+df3[df3$DailyWeather=='BR HZ',]$Mist <-  1
+df3[df3$DailyWeather=='RA BR HZ',]$Haze <-  1
+df3[df3$DailyWeather=='RA FG BR HZ',]$Haze <-  1
+df3[df3$DailyWeather=='HZ',]$Haze <-  1
+df3[df3$DailyWeather=='BR HZ',]$Haze <-  1
+df3[df3$DailyWeather=='RA HZ',]$Haze <-  1
+df3[df3$DailyWeather=='RA FG BR',]$Fog <-  1
+df3[df3$DailyWeather=='RA FG BR HZ',]$Fog <-  1
+df3[df3$DailyWeather=='RA SN BR',]$Snow <-  1
+df3[df3$DailySnowfall=='T',]$Snow <-  1
 
 df3 <- df3 %>% select(-c("DailyWeather"))
 df3
@@ -109,6 +112,7 @@ df3
 ```{r}
 write.csv(df3, "weather_rides.csv")
 ```
+
 
 
 
